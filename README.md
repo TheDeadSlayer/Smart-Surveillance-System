@@ -25,7 +25,7 @@ Node.js and npm for the server (optional)
 
 # Installation
 Provide step-by-step instructions on how to set up the project. This should include installing necessary libraries, setting up hardware, and running any initial configuration scripts.
-#Seting up YoloV4 Humman Detection AI
+# Seting up YoloV4 Humman Detection AI
 1. Run pip3 install paho-mqtt
 3. Download YoloV4.Weights : https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.weights
 4. Setup OpenCV to run on the Nvidia GPU by following this tutorial:https://www.youtube.com/watch?v=YsmhKar8oOc
