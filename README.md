@@ -1,4 +1,30 @@
 # Smart-Surveillance-System
+#Overview
+The Smart Surveillance System project leverages cutting-edge technologies including YOLO (You Only Look Once) Human Detection AI and IoT (Internet of Things) protocols to create a state-of-the-art surveillance system. Designed to process video streams in real-time directly at the network's edge, this system addresses the conventional challenges of latency and bandwidth in surveillance applications. At its core, it utilizes a modified YOLO model, enhanced with Residual Learning and Spatial Pyramid Pooling (SPP), ensuring efficient and accurate human detection.
+
+#Features
+Real-Time Human Detection: Uses an enhanced YOLO AI model for immediate identification of human figures in the video feed.
+Edge Computing: Processes data at the edge of the network, reducing latency and bandwidth use.
+IoT Integration: Facilitates remote management and scalability through IoT protocols.
+Pan-Tilt Camera Control: Offers wide area coverage with motorized pan and tilt movements.
+Low-Latency Video Streaming: Ensures swift data transmission for real-time surveillance applications.
+Hardware and Software Requirements
+
+#Hardware:
+Raspberry Pi 3B (or higher)
+Compatible Camera Module with night vision
+Servo Motors for pan-tilt functionality
+Additional sensors and actuators as needed for customization
+
+#Software:
+Python 3.6+
+OpenCV library for computer vision tasks
+Paho MQTT for messaging in IoT applications
+Any MQTT broker (e.g., HiveMQ)
+Node.js and npm for the server (optional)
+
+#Installation
+Provide step-by-step instructions on how to set up the project. This should include installing necessary libraries, setting up hardware, and running any initial configuration scripts.
 #Seting up YoloV4 Humman Detection AI
 1. Run pip3 install paho-mqtt
 3. Download YoloV4.Weights : https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.weights
