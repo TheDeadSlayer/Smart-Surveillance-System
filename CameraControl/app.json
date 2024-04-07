@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "CameraControl",
+    "slug": "CameraControl",
+    "version": "1.0.0",
+    "extra": {
+      "projectId": "CameraCtrl",
+      "eas": {
+        "projectId": "6e5b4755-da17-4ea5-a6c9-6e696ff7c7aa"
+      }
+    },
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mahmoudms.CameraControl"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.mahmoudms.CameraControl"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
