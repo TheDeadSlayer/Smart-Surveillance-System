@@ -75,15 +75,15 @@ const CameraControlApp = () => {
   const notificationListener = useRef();
   const responseListener = useRef();
   const [streamUrl, setStreamUrl] = useState('');
-  const client = new Paho.MQTT.Client('c4d8488a2a0544759c5c7696e88f744d.s1.eu.hivemq.cloud',8884,"Camera" + String(parseInt(Math.random()*1000,10)))
+  const client = new Paho.MQTT.Client('c4d8488a2a0544759c5c7696e88f744d.s1.eu.hivemq.cloud',8884,"MobileAPP123" + String(parseInt(Math.random)*100,100))
   
 
 
 
   useEffect(() => {
- if (client && client.isConnected()) {
-      client.disconnect()
-    }
+//  if (client && client.isConnected()) {
+//       client.disconnect()
+//     }
   
   client.connect({
   useSSL: true,
@@ -92,6 +92,7 @@ const CameraControlApp = () => {
   onFailure: (e) => {
     console.log("Connection Failed")
     alert("Failed to connect to MQTT broker");
+    client.reconnect()
   },
   userName: "Camera",
   password: "Secura123",
@@ -99,6 +100,7 @@ const CameraControlApp = () => {
     console.log("Connection Successful")
     client.subscribe("Mobile/IP", 1);
     client.subscribe("Mobile/detect", 1);
+    client.reconnect()
     
   },
 });
@@ -119,6 +121,10 @@ client.onMessageArrived = (message) => {
 };
 
   }, []);
+
+  // useEffect(() => {
+  //   client.reconnect()
+  //      } )
 
 
   useEffect(() => {
@@ -162,26 +168,26 @@ client.onMessageArrived = (message) => {
 
       {/* Directional Arrows */}
       <View style={styles.directionalArrowsContainer}>
-      <TouchableOpacity onPressIn={() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "0", 1, true)}}} onPressOut={() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "5", 1, true)}}}>
+      <TouchableOpacity onPressIn={async() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "0", 1, true)}}} onPressOut={() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "5", 1, true)}}}>
         <Image source={require('./arrows/up.png')} style={styles.arrowIcon} />
       </TouchableOpacity>
       <View style={styles.horizontalArrows}>
-      <TouchableOpacity onPressIn={() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "3", 1, true)}}} onPressOut={() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "5", 1, true)}}}>
+      <TouchableOpacity onPressIn={async() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "3", 1, true)}}} onPressOut={() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "5", 1, true)}}}>
           <Image source={require('./arrows/left.png')} style={styles.arrowIcon} />
         </TouchableOpacity>
-        <TouchableOpacity onPressIn={() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "2", 1, true)}}} onPressOut={() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "5", 1, true)}}}>
+        <TouchableOpacity onPressIn={async() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "2", 1, true)}}} onPressOut={() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "5", 1, true)}}}>
           <Image source={require('./arrows/right.png')} style={styles.arrowIcon} />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity onPressIn={() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "1", 1, true)}}} onPressOut={() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "5", 1, true)}}}>
+      <TouchableOpacity onPressIn={async ()=>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "1", 1, true)}}} onPressOut={() =>{ if (client && client.isConnected()) { client.send("Mobile/Camera", "5", 1, true)}}}>
         <Image source={require('./arrows/down.png')} style={styles.arrowIcon} />
       </TouchableOpacity>
     </View>
 
       {/* Disarm and Arm Buttons */}
       <View style={styles.systemControl}>
-        <Button title="Disarm" onPress={() => client.send("Mobile/Arm", "0", 1, true)} />
-        <Button title="Arm" onPress={() => client.send("Mobile/Arm", "1", 1, true)} />
+        <Button title="Disarm" onPress={async() => client.send("Mobile/Arm", "0", 1, true)} />
+        <Button title="Arm" onPress={async() => client.send("Mobile/Arm", "1", 1, true)} />
       </View>
     </SafeAreaView>
   );
