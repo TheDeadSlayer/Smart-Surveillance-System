@@ -1,7 +1,7 @@
 
 # Smart Surveillance System
 
-## Project Demo Video Link: https://drive.google.com/file/d/1_oQn3kJ3bqXLPDXdv7g2rExZY7DbykNg/view?usp=sharing
+## [Project Demo Video Link]: (https://drive.google.com/file/d/1_oQn3kJ3bqXLPDXdv7g2rExZY7DbykNg/view?usp=sharing)
 
 ## Overview
 The Smart Surveillance System is an integrated solution leveraging advanced AI, MQTT communication, and mobile technology to offer real-time monitoring and control. This guide will help you set up the system, including YoloV4 for human detection, MQTT for messaging, camera streaming, hardware controls on Raspberry Pi, and the mobile app.
